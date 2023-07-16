@@ -22,7 +22,7 @@ const Navbar = ({ activeMenu, setActiveMenu,screenSize }: Iprops) => {
   return (
     <>
       {(activeMenu) && (
-        <div className={`${screenSize > 800 && "flex  justify-start flex-col w-[300px] h-screen bg-slate-500 "} ${screenSize < 800 && "flex  justify-center flex-col w-[100vw] h-screen bg-slate-500 "} `}>
+        <div className={`${screenSize > 800 && "  flex  justify-start flex-col w-[300px] h-screen bg-slate-500 z-index-50"} ${screenSize < 800 && "flex  justify-center flex-col w-[100vw] h-screen bg-slate-500 "} bg-[rgb(0, 21, 41)]`}>
           <div
             className="flex justify-start"
           >
@@ -44,7 +44,7 @@ const Navbar = ({ activeMenu, setActiveMenu,screenSize }: Iprops) => {
         </div>
       )}
       <Button
-          className="absolute top-2 right-2 bg-slate-500"
+          className="fixed top-2 right-2 bg-slate-500 z-50"
           onClick={() => setActiveMenu(!activeMenu)}
         >
           <MenuOutlined className="text-white"/>

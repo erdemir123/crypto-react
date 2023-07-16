@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import Navbar from "./Components/Navbar";
 import HomePage from "./Components/HomePage";
 import Exchanges from "./Components/Exchanges";
-import Cryptocurrencies from "./Components/Cryptocurrencies";
-import CryptoDetails from "./Components/CryptoDetails";
+
 import News from "./Components/News";
 import Footer from "./Components/Footer";
 import { Provider } from "react-redux";
-import store from './App/store';
+import store from "./App/store";
+import Cryptocurrencies from "./Components/Cryptocurrencies";
+import CryptoDetails from "./Components/CryptoDetails";
 function App() {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState<number>(0);
@@ -30,30 +31,29 @@ function App() {
   }, [screenSize]);
   return (
     <div className="flex overflow-hidden">
-      <div className="bg-[rgb(0, 21, 41)]">
+      
         <Navbar
           activeMenu={activeMenu}
           setActiveMenu={setActiveMenu}
           screenSize={screenSize}
         />{" "}
-      </div>
+      
       <div className="w-full">
         <Provider store={store}>
-        <Layout>
-          <Routes>
-            <Route index element={<HomePage />} />
-            <Route path="/Home" element={<HomePage />} />
-            <Route path="/exchanges" element={<Exchanges />} />
-            <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
-            <Route path="/crypto/:coinId" element={<CryptoDetails />} />
-            <Route path="/news" element={<News />} />
-          </Routes>
-        </Layout>
+          <Layout>
+            <Routes>
+              <Route index element={<HomePage />} />
+              <Route path="/Home" element={<HomePage />} />
+              <Route path="/exchanges" element={<Exchanges />} />
+              <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+              <Route path="/crypto/:coinId" element={<CryptoDetails />} />
+              <Route path="/news" element={<News />} />
+            </Routes>
+          </Layout>
         </Provider>
-        
+
         <Footer />
       </div>
-      
     </div>
   );
 }
