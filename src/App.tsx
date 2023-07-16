@@ -8,6 +8,8 @@ import Cryptocurrencies from "./Components/Cryptocurrencies";
 import CryptoDetails from "./Components/CryptoDetails";
 import News from "./Components/News";
 import Footer from "./Components/Footer";
+import { Provider } from "react-redux";
+import store from './App/store';
 function App() {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState<number>(0);
@@ -36,15 +38,19 @@ function App() {
         />{" "}
       </div>
       <div className="w-full">
+        <Provider store={store}>
         <Layout>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route index element={<HomePage />} />
+            <Route path="/Home" element={<HomePage />} />
             <Route path="/exchanges" element={<Exchanges />} />
             <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
             <Route path="/crypto/:coinId" element={<CryptoDetails />} />
             <Route path="/news" element={<News />} />
           </Routes>
         </Layout>
+        </Provider>
+        
         <Footer />
       </div>
       
