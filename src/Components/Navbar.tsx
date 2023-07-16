@@ -22,7 +22,7 @@ const Navbar = ({ activeMenu, setActiveMenu,screenSize }: Iprops) => {
   return (
     <>
       {(activeMenu) && (
-        <div className={`${screenSize > 800 && "  flex  justify-start flex-col w-[300px] h-screen bg-slate-500 z-index-50"} ${screenSize < 800 && "flex  justify-center flex-col w-[100vw] h-screen bg-slate-500 "} bg-[rgb(0, 21, 41)]`}>
+        <div className={`${screenSize > 800 && "fixed top-0 left-0 flex  justify-start flex-col w-[300px] h-screen bg-slate-500 z-index-50"} ${screenSize < 800 && "flex  justify-center flex-col w-[100vw] h-screen bg-slate-500 "} bg-[rgb(0, 21, 41)]`}>
           <div
             className="flex justify-start"
           >

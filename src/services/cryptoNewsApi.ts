@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { News } from '../types';
+import {  Root } from '../types';
 
 const cryptoNewsHeaders = {
   'x-bingapis-sdk': 'true',
@@ -13,7 +13,7 @@ export const cryptoNewsApi = createApi({
   reducerPath: 'cryptoNewsApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_NEWS_API_URL }),
   endpoints: (builder) => ({
-    getCryptoNews: builder.query<News,{ newsCategory: string; count: number } >({
+    getCryptoNews: builder.query<Root,{ newsCategory: string; count: number } >({
       query: ({ newsCategory, count }) => createRequest(`/news/search?q=${newsCategory}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`),
     }),
   }),

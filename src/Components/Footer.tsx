@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-[#001529] flex flex-col p-5 items-center">
+    <div className="bg-[#001529] flex flex-col p-5 items-center sticky bottom-0 left-0">
       <Typography.Title
         level={5}
         style={{ color: "white", textAlign: "center" }}

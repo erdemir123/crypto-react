@@ -38,7 +38,7 @@ function App() {
           screenSize={screenSize}
         />{" "}
       
-      <div className="w-full">
+      <div className={`${activeMenu ? "w-[calc(100%-300px)] ml-[300px]" :" w-full"}`}>
         <Provider store={store}>
           <Layout>
             <Routes>
@@ -51,7 +51,6 @@ function App() {
             </Routes>
           </Layout>
         </Provider>
-
         <Footer />
       </div>
     </div>

@@ -7,6 +7,7 @@ import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCi
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import Loader from './Loader';
+import LineChart from './LineChart';
 // import LineChart from './LineChart';
 
 const { Title, Text } = Typography;
@@ -50,7 +51,7 @@ const CryptoDetails = () => {
       <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
         {time.map((date) => <Option key={date}>{date}</Option>)}
       </Select>
-      {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} /> */}
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
       <Col className="flex justify-between items-center gap-10">
         <Col >
           <Col className="font-bold opacity-90">

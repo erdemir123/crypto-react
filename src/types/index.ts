@@ -40,9 +40,43 @@ export interface IData {
     coinrankingUrl: string
     "24hVolume": string
   }
-  export interface News {
-    _type:string
-    name:string
-    url:string
-    description:string
+  export interface Thumbnail {
+    _type: string
+    contentUrl: string
+    width: number
+    height: number
+  }
+  
+  export interface Provider {
+    _type: string
+    name: string
+    image: Image2
+  }
+  export interface Image2 {
+    _type: string
+    thumbnail: Thumbnail2
+  }
+  
+  export interface Thumbnail2 {
+    _type: string
+    contentUrl: string
+  }
+  export interface Image {
+    _type: string
+    thumbnail: Thumbnail
+    isLicensed: boolean
+  }
+  export interface NewsApi {
+    _type: string
+    name: string
+    url: string
+    image?: Image
+    description: string
+    provider: Provider[]
+    datePublished: string
+  }
+  export interface Root {
+    _type: string
+    webSearchUrl: string
+    value: NewsApi[]
   }
