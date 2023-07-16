@@ -12,6 +12,8 @@ const Footer = () => {
         Copyright © 2021
         <Link to="/">Cryptoverse Inc.</Link> <br />
         All Rights Reserved.
+         <br />
+        <a href="https://www.linkedin.com/in/sad%C4%B1k-erdemir/" target="_blank">@Sadık ERDEMİR</a>
       </Typography.Title>
       <Space>
         <Link to="/">Home</Link>

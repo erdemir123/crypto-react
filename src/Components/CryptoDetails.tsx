@@ -94,7 +94,7 @@ const CryptoDetails = () => {
           {cryptoDetails?.links?.map((link:any) => (
             <Row className="font-bold opacity-90" key={link?.name}>
               <Title level={5} className="font-bold opacity-90">{link.type}: </Title>
-              <a href={link.url} target="_blank" rel="noreferrer">{link?.name}</a>
+              <a href={link.url} target="_blank" rel="noreferrer" className='text-md ml-2 mt-[2px]'>{link?.name}</a>
             </Row>
           ))}
         </Col>

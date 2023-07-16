@@ -24,10 +24,10 @@ const { Option } = Select;
   return (
     <Row gutter={[24, 24]}>
       {!simplified && (
-        <Col span={24}>
+        <Col span={24} className='flex-center mt-2 font-bold text-lg '>
           <Select
             showSearch
-            className="select-news"
+            className="w-[50%] "
             placeholder="Select a Crypto"
             optionFilterProp="children"
             onChange={(value) => setNewsCategory(value)}

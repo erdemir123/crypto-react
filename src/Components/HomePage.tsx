@@ -12,7 +12,7 @@ const HomePage = () => {
   const { Title } = Typography;
   const globalStats: any = data?.data?.stats;
 
-  if (isFetching) return <Loader />;
+  if (isFetching) return <div className="w-[100vw] h-screen"><Loader /></div>;
 
   return (
     <>
