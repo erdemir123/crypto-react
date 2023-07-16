@@ -1,6 +1,6 @@
 // Need to use the React-specific entry point to allow generating React hooks
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Coin } from '../types';
+import { Coin, Data, IData } from '../types';
 
 
 const cryptoApiHeaders = {
@@ -13,7 +13,7 @@ export const cryptoApi = createApi({
   reducerPath: 'cryptoApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_CRYPTO_API_URL }),
   endpoints: (builder) => ({
-    getCryptos: builder.query<Coin, number>({
+    getCryptos: builder.query<IData, number>({
       query: (count) => createRequest(`/coins?limit=${count}`),
     }),
     getCryptoDetails: builder.query({

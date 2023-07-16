@@ -5,7 +5,7 @@ export interface InavTabs{
     name:string,
     icon: any
 }
-export interface Root {
+export interface IData {
     status: string
     data: Data
   }
