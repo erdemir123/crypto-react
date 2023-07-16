@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Input, Typography } from "antd";
-import Logo from "../assets/img/logo.png"
+import Logo from "../assets/img/logo.png";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from "./Loader";
@@ -12,7 +12,7 @@ interface Iprops {
 }
 const Cryptocurrencies = ({ simplified }: Iprops) => {
   const count = simplified ? 10 : 100;
-  
+
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState<Coin[] | undefined>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,20 +41,18 @@ const Cryptocurrencies = ({ simplified }: Iprops) => {
           />
         </div>
       )}
-      <Row gutter={[32, 32]} className="crypto-card-container">
+      <Row gutter={[32, 32]} className="px-4">
         {cryptos?.map((currency) => (
-          <Col
-            xs={24}
-            sm={12}
-            lg={6}
-            className="crypto-card"
-            key={currency.uuid}
-          >
-            
+          <Col xs={24} sm={12} lg={6} key={currency.uuid}>
             <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
-                extra={<img className="min-w-[200px] w-48 h-40" src={currency.iconUrl ? currency.iconUrl : Logo} />}
+                extra={
+                  <img
+                    className="min-w-[200px] w-48 h-40 py-2"
+                    src={currency.iconUrl ? currency.iconUrl : Logo}
+                  />
+                }
                 hoverable
               >
                 <p>Price: {millify(+currency?.price)}</p>

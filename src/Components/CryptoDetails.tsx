@@ -46,54 +46,54 @@ const CryptoDetails = () => {
         <Title level={2} className="text-slate-500">
           {data?.data?.coin?.name} ({data?.data?.coin.symbol}) Price
         </Title>
-        <p>{cryptoDetails?.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
+        <p className='font-bold text-slate-400'>{cryptoDetails?.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
       </Col>
       <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
         {time.map((date) => <Option key={date}>{date}</Option>)}
       </Select>
       <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
-      <Col className="flex justify-between items-center gap-10">
+      <Col className="flex justify-between items-center gap-10 border px-4 ">
         <Col >
-          <Col className="font-bold opacity-90">
+          <Col className="font-bold opacity-90 text-center">
             <Title level={3} className="coin-details-heading">{cryptoDetails?.name} Value Statistics</Title>
             <p>An overview showing the statistics of {cryptoDetails?.name}, such as the base and quote currency, the rank, and trading volume.</p>
           </Col>
           {stats.map(({ icon, title, value }) => (
             <Col className="flex-center flex-col border-b-2 border-slate-300 font-bold opacity-90 p-5">
-              <Col className="flex gap-5 font-medium">
+              <Col className="flex gap-1 font-bold items-center">
                 <Text>{icon}</Text>
-                <Text>{title}</Text>
+                <Text className='mt-2'>{title}</Text>
               </Col>
               <Text >{value}</Text>
             </Col>
           ))}
         </Col>
         <Col >
-          <Col className="font-bold opacity-90">
+          <Col className="font-bold opacity-90 text-center">
             <Title level={3}>Other Stats Info</Title>
             <p>An overview showing the statistics of {cryptoDetails?.name}, such as the base and quote currency, the rank, and trading volume.</p>
           </Col>
           {genericStats.map(({ icon, title, value }) => (
             <Col className="flex-center flex-col border-b-2 border-slate-300 font-bold opacity-90 p-5">
-              <Col className="flex gap-5 font-medium">
+              <Col className="flex gap-2 font-bold items-center">
                 <Text>{icon}</Text>
-                <Text>{title}</Text>
+                <Text className='mt-2'>{title}</Text>
               </Col>
               <Text >{value}</Text>
             </Col>
           ))}
         </Col>
       </Col>
-      <Col className="flex gap-5 mt-10 pt-5">
-        <Row className="flex ">
+      <Col className="flex-center flex-col gap-5 mt-10 pt-5 ">
+        <Row className="flex flex-col text-center">
           <Title level={3} className="font-bold opacity-90">What is {cryptoDetails?.name}?</Title>
           {HTMLReactParser(`${cryptoDetails?.description}`)}
         </Row>
-        <Col className="coin-links">
-          <Title level={3} className="font-bold opacity-90">{cryptoDetails?.name} Links</Title>
+        <Col className="flex flex-col text-center items-center ">
+          <Title level={3} className="font-bold opacity-90">--------{cryptoDetails?.name} Links --------</Title>
           {cryptoDetails?.links?.map((link:any) => (
             <Row className="font-bold opacity-90" key={link?.name}>
-              <Title level={5} className="font-bold opacity-90">{link.type}</Title>
+              <Title level={5} className="font-bold opacity-90">{link.type}: </Title>
               <a href={link.url} target="_blank" rel="noreferrer">{link?.name}</a>
             </Row>
           ))}
