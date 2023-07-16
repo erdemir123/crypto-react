@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import millify from "millify";
 
 import { Link } from 'react-router-dom'; 
+import Cryptocurrencies from "./Cryptocurrencies";
 const HomePage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const { Title } = Typography;
@@ -57,7 +58,7 @@ const HomePage = () => {
           <Link to="/cryptocurrencies">Show more</Link>
         </Title>
       </div>
-      {/* <Cryptocurrencies simplified /> */}
+      <Cryptocurrencies  />
       <div className="flex justify-between  items-center border-t-2 border-slate-500gap-2">
         <Title level={2} className="font-bold">
           Latest Crypto News
