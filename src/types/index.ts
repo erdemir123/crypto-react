@@ -40,3 +40,9 @@ export interface Root {
     coinrankingUrl: string
     "24hVolume": string
   }
+  export interface News {
+    _type:string
+    name:string
+    url:string
+    description:string
+  }
